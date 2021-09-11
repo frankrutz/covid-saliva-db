@@ -4,18 +4,22 @@
 
 Status: trying to understand whats needed
 
-DB-System: to be decided, we start with Microsoft SQL Server, because it is so easy to run
+DB-System: Microsoft SQL Server
 
-DB System location: USZ? Google Zürich?  
+DB System location: Testsystems: Local Containe DB. Production: USZ
+
+The data is not explicitly connected with personal data like names or addresses.
 
 Initial DB roles: Admin, Read, Write.
 
-# DB schema
+# db schema
 
 
 
 
-## Development Environment Installation on a Windows machine
+## development environment installation on a windows machine
+
+Remark: Can also be run on a Mac or Linux box, if needed.
 
 Install Docker Desktop
 
