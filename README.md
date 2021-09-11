@@ -1,6 +1,16 @@
+
+
 # covid-saliva-db
 
-##
+Status: trying to understand whats needed
+
+DB-System: to be decided, we start with Microsoft SQL Server, because it is so easy to run
+
+DB System location: USZ? Google Zürich?  
+
+Initial DB roles: Admin, Read, Write.
+
+# DB schema
 
 
 
