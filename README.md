@@ -42,11 +42,11 @@ create table origin_excel (
     erfasstDurch varchar(255),
     geltungsbereich varchar(255),
     erstelltDurch varchar(255),
-	version date,
-	gueltigAb date,
-	ersetzt date,
-	kurztitel varchar(255),
-	runsheetstorage varchar(255)
+    version date,
+    gueltigAb date,
+    ersetzt date,
+    kurztitel varchar(255),
+    runsheetstorage varchar(255)
 
 );
 grant select on origin_excel to dbreader
