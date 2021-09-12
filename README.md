@@ -46,10 +46,18 @@ git clone https://github.com/frankrutz/covid-saliva-db
 
 
 
-Start DB-Container
+## start DB-Container
 
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=adskladf49XLJjieuwo' -p 1433:1433 --name 'covid-db-server' -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
 
 You can now connect to  Servername  localhost,1433  (watch the comma, not a point) with Username SA and Password as above from mssql-server-mgmt-studio.
 
+## build python container
 
+ docker build -f dockerfile  -t  pythoncontainer .
+ 
+ ## running the python container interactively
+ 
+  docker run -rm -i -t pythoncontainer bash
+ 
+ 
