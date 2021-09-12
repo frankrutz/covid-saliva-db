@@ -64,11 +64,11 @@ grant select on plate384 to dbreader
 grant update on plate384 to dbwriter
 
 
-drop table if exists  qcr384_well_info
-create table qcr384_well_info(
+drop table if exists  pcr384_well_info
+create table pcr384_well_info(
    fk_excelname varchar(12),   --foreign key into origin_excel
    file_name varchar(255),
-   pk_qcr_file_name varchar(255),  --Primary Key derived from file_name above, without path.
+   pk_pcr_file_name varchar(255),  --Primary Key derived from file_name above, without path.
    comment varchar(255),
    operator varchar(255),
    barcode varchar(255),
@@ -88,13 +88,13 @@ create table qcr384_well_info(
    plugin_name_and_version varchar(255),
    exported_on datetime
 )
-grant select on qcr384_well_info to dbreader
-grant update on qcr384_well_info to dbwriter
+grant select on pcr384_well_info to dbreader
+grant update on pcr384_well_info to dbwriter
 
 
-drop table if exists qcr384_well_results   --supplier name: PcrOutput
-CREATE TABLE [dbo].qcr384_well_results(
-	   [fk_qcr_file_name] [varchar](255) NOT NULL,   --foreign key into qcr384_well_info
+drop table if exists pcr384_well_results   --supplier name: PcrOutput
+CREATE TABLE [dbo].pcr384_well_results(
+	   [fk_pcr_file_name] [varchar](255) NOT NULL,   --foreign key into pcr384_well_info
        [Well] [int] NULL,
        [Well_Position] [nvarchar](50) NULL,
        [Omit] [nvarchar](50) NULL,
@@ -118,8 +118,8 @@ CREATE TABLE [dbo].qcr384_well_results(
        [Baseline_End] [tinyint] NULL
 ) ON [PRIMARY]
 
-grant select on qcr384_well_results to dbreader
-grant update on qcr384_well_results to dbwriter
+grant select on pcr384_well_results to dbreader
+grant update on pcr384_well_results to dbwriter
 
 
 drop table if exists employees
