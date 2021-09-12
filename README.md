@@ -59,4 +59,9 @@ docker build -f dockerfile  -t  pythoncontainer .
  
  docker run --rm -i -t pythoncontainer bash
  
+ But the command
+ 
+ python parse_excel.py
+ 
+ works only if we remove the commented lines from pcrtestdata.csv
  
