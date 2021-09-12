@@ -14,10 +14,15 @@ Initial DB roles: Admin, Read, Write.
 
 # db schema
 
+create database coronasalivadb
 
-create login dbreader WITH PASSWORD = 'hahahathiswillbeexchanged29839283';
+create login dbreader WITH PASSWORD = 'hahahathiswillbeexchangeX..Pd29839283';
 Create user dbreader for login dbreader
-create user dbreader for login dbreader
+
+create login dbwriter WITH PASSWORD = 'hahahathiswillbeexchangeX..Pd2983234329283';
+Create user dbwriter for login dbwriter
+
+
 
 
 
@@ -40,4 +45,8 @@ https://www.educative.io/edpresso/how-to-install-git-bash-in-windows
 
 Start DB-Container
 
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=adskladf49XLJjieuwo' -p 1433:1433 --name 'corona-saliva-db' -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=adskladf49XLJjieuwo' -p 1433:1433 --name 'corona-db-server' -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+
+You can now connect to  Servername  localhost,1433  (watch the comma, not a point) with Username SA and Password as above from mssql-server-mgmt-studio.
+
+
