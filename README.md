@@ -20,6 +20,8 @@ What do we do with the "Master Mix Calculation" sheet?
 
 See file create_covidsalivadb.sql
 
+https://github.com/frankrutz/covid-saliva-db/blob/main/create_covidsalivadb.sql
+
 ## development environment installation on a windows machine
 
 Remark: Can also be run on a Mac or Linux box, if needed.
