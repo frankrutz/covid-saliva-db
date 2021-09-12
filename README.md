@@ -6,13 +6,19 @@ Status: trying to understand whats needed
 
 DB-System: Microsoft SQL Server
 
-DB System location: Testsystems: Local Containe DB. Production: USZ
+DB System location: Testsystems: Local Container DB. Production: USZ
 
 The data is not explicitly connected with personal data like names or addresses.
 
-Initial DB roles: Admin, Read, Write.
+Initial DB roles: Admin SA, Read dbreader, Write dbwriter
+
+# open questions
+
+What do we do with the "Master Mix Calculation" sheet?
 
 # db schema
+
+TODO_FRANK move this to create_db.sql
 ```
 create database coronasalivadb
 
