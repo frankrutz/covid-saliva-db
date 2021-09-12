@@ -114,39 +114,34 @@ grant select on qcr384_well_info to dbreader
 grant update on qcr384_well_info to dbwriter
 
 
-drop table if exists qcr384_well_results
---there seem to be some boolean attributes down below like ommit, auto_threshold. 
---because we don't have a datta manual, we treat these like text variables.
-create table qcr384_well_results(
-	fk_qcr_file_name varchar(255),   --foreign key into qcr384_well_info
-	well int,
-	well_position varchar(4),    --A1 ... P24
-	plat_ecolumn int,            --allowed values 1..24 derived from well_position
-	row varchar(1),             --allowed values A,B,...,P derived from well_position
-	ommit varchar(24),
-	sample varchar(24),
-	target  varchar(24),
-	task  varchar(24),
-	reporter  varchar(24),
-	quencher  varchar(24),
-	cq float,
-	cq_mean float,
-	amp_status  varchar(24),
-	amp_score float ,
-	curve_quality  varchar(24),
-	result_quality_issues  varchar(24),
-	cq_confidence float,
-	cq_sd  varchar(24),
-	auto_trheshold  varchar(24),
-	threshold float,
-	auto_baseline  varchar(24),
-	baseline_start int,
-	baseline_end int
-)
+drop table if exists qcr384_well_results   --supplier name: PcrOutput
+CREATE TABLE [dbo].qcr384_well_results(
+	   [fk_qcr_file_name] [varchar](255) NOT NULL,   --foreign key into qcr384_well_info
+       [Well] [int] NULL,
+       [Well_Position] [nvarchar](50) NULL,
+       [Omit] [nvarchar](50) NULL,
+       [Sample] [nvarchar](50) NULL,
+       [Target] [nvarchar](50) NULL,
+       [Task] [nvarchar](50) NULL,
+       [Reporter] [nvarchar](50) NULL,
+       [Quencher] [nvarchar](50) NULL,
+       [Amp_Status] [nvarchar](50) NULL,
+       [Amp_Score] [float] NULL,
+       [Curve_Quality] [nvarchar](1) NULL,
+       [Result_Quality_Issues] [nvarchar](1) NULL,
+       [Cq] [nvarchar](50) NULL,
+       [Cq_Confidence] [float] NULL,
+       [Cq_Mean] [float] NULL,
+       [Cq_SD] [float] NULL,
+       [Auto_Threshold] [nvarchar](50) NULL,
+       [Threshold] [float] NULL,
+       [Auto_Baseline] [nvarchar](50) NULL,
+       [Baseline_Start] [tinyint] NULL,
+       [Baseline_End] [tinyint] NULL
+) ON [PRIMARY]
+
 grant select on qcr384_well_results to dbreader
 grant update on qcr384_well_results to dbwriter
-
-select * from qcr384_well_results
 
 ```
 
