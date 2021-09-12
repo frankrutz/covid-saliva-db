@@ -39,12 +39,9 @@ Install mssql-server management studio approx. 675 MByte
 
 https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15
 
-Clone this repository
+## Clone this repository
 
 git clone https://github.com/frankrutz/covid-saliva-db
-
-
-
 
 ## start DB-Container
 
