@@ -85,6 +85,39 @@ grant select on plate384 to dbreader
 grant update on plate384 to dbwriter
 
 
+drop table qcr384_results
+--there seem to be some boolean attributes down below like ommit, auto_threshold. 
+--because we don't have a datta manual, we treat these like text variables.
+create table qcr384_results(
+	fk_excelname varchar(12),   --foreign key into origin_excel
+	well int,
+	well_position varchar(4),    --A1 ... P24
+	plat_ecolumn int,            --allowed values 1..24 derived from well_position
+	row varchar(1),             --allowed values A,B,...,P derived from well_position
+	ommit varchar(24),
+	sample varchar(24),
+	target  varchar(24),
+	task  varchar(24),
+	reporter  varchar(24),
+	quencher  varchar(24),
+	cq float,
+	cq_mean float,
+	amp_status  varchar(24),
+	amp_score float ,
+	curve_quality  varchar(24),
+	result_quality_issues  varchar(24),
+	cq_confidence float,
+	cq_sd  varchar(24),
+	auto_trheshold  varchar(24),
+	threshold float,
+	auto_baseline  varchar(24),
+	baseline_start int,
+	baseline_end int
+)
+grant select on qcr384_results to dbreader
+grant update on qcr384_results to dbwriter
+
+
 select * from plate384
 ```
 
