@@ -39,10 +39,23 @@ Get some kind of bash with git running. On windows, git bash is a good choice.
 https://www.educative.io/edpresso/how-to-install-git-bash-in-windows
 
 
-Start DB-Container
+## Start DB-Container
 
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=adskladf49XLJjieuwo' -p 1433:1433 --name 'covid-db-server' -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
 
 You can now connect to  Servername  localhost,1433  (watch the comma, not a point) with Username SA and Password as above from mssql-server-mgmt-studio.
 
+## Build the python container
 
+You need to be in project root. 
+
+docker build -f dockerfile  -t  pythoncontainer .
+ 
+## Jumping into the python container interactively
+
+Warning: Does not work on git bash on Windoze, use powershell instead
+ 
+docker run --rm -i -t pythoncontainer bash
+ 
+ 
+ 
