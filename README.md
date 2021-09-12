@@ -13,14 +13,40 @@ The data is not explicitly connected with personal data like names or addresses.
 Initial DB roles: Admin, Read, Write.
 
 # db schema
-
 create database coronasalivadb
+
 
 create login dbreader WITH PASSWORD = 'hahahathiswillbeexchangeX..Pd29839283';
 Create user dbreader for login dbreader
 
+
 create login dbwriter WITH PASSWORD = 'hahahathiswillbeexchangeX..Pd2983234329283';
 Create user dbwriter for login dbwriter
+
+
+drop table origin_excel;
+create table origin_excel (
+    --general info--------------------------------------------
+	excelname varchar(12),
+	excelstored timestamp,
+
+    --upper left----------------------------------------------
+    dokumentart varchar(255),
+    erfasstDurch varchar(255),
+    geltungsbereich varchar(255),
+    erstelltDurch varchar(255),
+	version date,
+	gueltigAb date,
+	ersetzt date,
+	kurztitel varchar(255),
+	runsheetstorage varchar(255)
+
+);
+grant select on origin_excel to dbreader
+grant update on origin_excel to dbwriter
+
+
+select * from origin_excel
 
 
 
