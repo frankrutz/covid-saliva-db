@@ -53,6 +53,17 @@ grant select on origin_excel to dbreader
 grant update on origin_excel to dbwriter
 
 
+drop table plate96
+create table plate96 (
+	fk_excelname varchar(12), --foreign key into origin_excel
+	platetable int,
+	platecolumn int,
+	row varchar(1),
+	code varchar(16)
+)
+grant select on plate96 to dbreader
+grant update on plate96 to dbwriter
+
 select * from origin_excel
 
 ```
