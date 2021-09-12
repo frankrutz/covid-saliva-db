@@ -8,6 +8,11 @@ DB-System: Microsoft SQL Server
 
 DB System location: Testsystems: Local Container DB. Production: USZ
 
+Parsing the Excel data and pushing it into the DB: Python and Panda
+
+See  https://towardsdatascience.com/deploying-python-script-to-docker-container-and-connect-to-external-sql-server-in-10-minutes-225ff4c19ce5
+
+
 The data is not explicitly connected with personal data like names or addresses.
 
 Initial DB roles: Admin SA, Read dbreader, Write dbwriter
