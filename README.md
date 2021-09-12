@@ -54,10 +54,12 @@ You can now connect to  Servername  localhost,1433  (watch the comma, not a poin
 
 ## build python container
 
- docker build -f dockerfile  -t  pythoncontainer .
+Attention the dot at the end denotes the currenct directory and belongs to the command
+
+docker build -f dockerfile  -t  pythoncontainer .
  
- ## running the python container interactively
+## running the python container interactively
  
-  docker run -rm -i -t pythoncontainer bash
+ docker run --rm -i -t pythoncontainer bash
  
  
