@@ -53,8 +53,6 @@ grant select on origin_excel to dbreader
 grant update on origin_excel to dbwriter
 
 
-
-
 drop table plate96
 create table plate96 (
 	fk_excelname varchar(12),   --foreign key into origin_excel
@@ -67,8 +65,28 @@ grant select on plate96 to dbreader
 grant update on plate96 to dbwriter
 
 
-select * from origin_excel
+drop table plate384  --do we really need this or this this redundant info from plate96???? or we not need plate 96?
+create table plate384 (
+	fk_excelname varchar(12),   --foreign key into origin_excel
+	platecolumn int,            --allowed values 1..24
+	row varchar(1),             --allowed values A,B,...,P
+	code int,
 
+    --results
+	code_control int,            --we parse it again from the excel, should be the same as in origin_exel, quality control ....
+	plate_key varchar(10),
+	viral_rna int,
+	degradation_control int,
+	inhibition_control int,
+	result varchar(12),          --allowed values POSITIV, NEGATIV, ???
+	qc varchar(12),              --allowed values VALID, ???
+	interpretation varchar(12)   --allowed values NEGATIVE,???
+)
+grant select on plate384 to dbreader
+grant update on plate384 to dbwriter
+
+
+select * from plate384
 ```
 
 
