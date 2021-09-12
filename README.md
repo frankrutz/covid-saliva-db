@@ -13,6 +13,7 @@ The data is not explicitly connected with personal data like names or addresses.
 Initial DB roles: Admin, Read, Write.
 
 # db schema
+```
 create database coronasalivadb
 
 
@@ -48,7 +49,7 @@ grant update on origin_excel to dbwriter
 
 select * from origin_excel
 
-
+```
 
 
 
