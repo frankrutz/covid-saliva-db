@@ -20,22 +20,23 @@ What do we do with the "Master Mix Calculation" sheet?
 
 TODO_FRANK move this to create_db.sql
 ```
-create database covidsalivadb
-
-
 create login dbreader WITH PASSWORD = 'hahahathiswillbeexchangeX..Pd29839283';
 Create user dbreader for login dbreader
-
 
 create login dbwriter WITH PASSWORD = 'hahahathiswillbeexchangeX..Pd2983234329283';
 Create user dbwriter for login dbwriter
 
+drop database if exists coronasalivadb
+create database coronasalivadb
 
-drop table origin_excel;
+
+
+
+drop table if exists origin_excel;
 create table origin_excel (
     --general info--------------------------------------------
     excelname varchar(12),
-    excelstored timestamp,
+	excelimported timestamp,
     
     --upper left----------------------------------------------
     dokumentart varchar(255),
@@ -52,7 +53,7 @@ grant select on origin_excel to dbreader
 grant update on origin_excel to dbwriter
 
 
-drop table plate96
+drop table if exists plate96
 create table plate96 (
 	fk_excelname varchar(12),   --foreign key into origin_excel
 	platetable int,             --allowed values 1...4
@@ -64,7 +65,7 @@ grant select on plate96 to dbreader
 grant update on plate96 to dbwriter
 
 
-drop table plate384  --do we really need this or this this redundant info from plate96???? or we not need plate 96?
+drop table if exists plate384  --do we really need this or this this redundant info from plate96???? or we not need plate 96?
 create table plate384 (
 	fk_excelname varchar(12),   --foreign key into origin_excel
 	platecolumn int,            --allowed values 1..24
@@ -85,11 +86,39 @@ grant select on plate384 to dbreader
 grant update on plate384 to dbwriter
 
 
-drop table qcr384_results
+drop table if exists  qcr384_well_info
+create table qcr384_well_info(
+   fk_excelname varchar(12),   --foreign key into origin_excel
+   file_name varchar(255),
+   pk_qcr_file_name varchar(255),  --Primary Key derived from file_name above, without path.
+   comment varchar(255),
+   operator varchar(255),
+   barcode varchar(255),
+   instrument_type varchar(255),
+   instrument_serial_number varchar(255),
+   heated_cover_serial_number varchar(255),
+   block_serial_number varchar(255),
+   run_start_date_time datetime,
+   run_end_date_time datetime,
+   sample_volume float,
+   cover_temperature float,
+   passive_reference varchar(255),
+   pcr_stage_step_number varchar(255),
+   quantification_cycle_method varchar(12),
+   analysis_date_time datetime,
+   software_name_version varchar(255),
+   plugin_name_and_version varchar(255),
+   exported_on datetime
+)
+grant select on qcr384_well_info to dbreader
+grant update on qcr384_well_info to dbwriter
+
+
+drop table if exists qcr384_well_results
 --there seem to be some boolean attributes down below like ommit, auto_threshold. 
 --because we don't have a datta manual, we treat these like text variables.
-create table qcr384_results(
-	fk_excelname varchar(12),   --foreign key into origin_excel
+create table qcr384_well_results(
+	fk_qcr_file_name varchar(255),   --foreign key into qcr384_well_info
 	well int,
 	well_position varchar(4),    --A1 ... P24
 	plat_ecolumn int,            --allowed values 1..24 derived from well_position
@@ -114,11 +143,11 @@ create table qcr384_results(
 	baseline_start int,
 	baseline_end int
 )
-grant select on qcr384_results to dbreader
-grant update on qcr384_results to dbwriter
+grant select on qcr384_well_results to dbreader
+grant update on qcr384_well_results to dbwriter
 
+select * from qcr384_well_results
 
-select * from plate384
 ```
 
 
