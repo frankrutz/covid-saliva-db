@@ -20,7 +20,7 @@ What do we do with the "Master Mix Calculation" sheet?
 
 TODO_FRANK move this to create_db.sql
 ```
-create database coronasalivadb
+create database covidsalivadb
 
 
 create login dbreader WITH PASSWORD = 'hahahathiswillbeexchangeX..Pd29839283';
@@ -142,7 +142,7 @@ https://www.educative.io/edpresso/how-to-install-git-bash-in-windows
 
 Start DB-Container
 
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=adskladf49XLJjieuwo' -p 1433:1433 --name 'corona-db-server' -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=adskladf49XLJjieuwo' -p 1433:1433 --name 'covid-db-server' -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
 
 You can now connect to  Servername  localhost,1433  (watch the comma, not a point) with Username SA and Password as above from mssql-server-mgmt-studio.
 
